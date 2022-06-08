@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mission to Mars</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="p-1 mb-4 text-white bg-dark rounded-3 text-center">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Mission to Mars</h1>
+      <!-- create a button that refers to our scrape route -->
+      <p><a class="btn btn-success btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+      </div>
+
+    </div>
+
+    <!-- Site Content -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <h3>Latest Mars News</h3>
+          <h5>{{mars_dict.news_title}}</h5>
+          <p>{{mars_dict.news_p}}</p>
+        </div>
+      </div>
+
+      <div class="row p-1">
+        <div class="col-7">
+          <h4>Featured Mars Image</h4>
+          <img src="{{ mars_dict.featured_image_url }}" class="img-fluid" alt="Featured Mars Image">
+        </div>
+        <div class="col-5">
+          <h4>Mars Facts</h4>
+          <table class="table table-responsive table-striped table-bordered border-dark" style="font-size:10px" {{mars_dict.mars_table|safe}} </table>
+        </div>
+      </div>
+
+      <div class="row p-3 d-flex justify-content-center">
+        <div class="col-12">
+          <h4 class="heading pb-2 mb-4 text-center border-bottom">Mars Hemispheres</h4>
+          <div class="row pb-5">
+
+            {% for item in mars_dict.hemisphere_image_urls %}
+            
+            <div class="col-3">
+              <div class="card border-dark h-100">
+                <img src="{{ item.img_url }}" class="card-img-top img-fluid" alt="{{ item.title }}">
+                <div class="card-body">
+                  <p class="card-text">{{ item.title }}</p>
+                </div>
+              </div>
+            </div>
+            
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+
+</html>
