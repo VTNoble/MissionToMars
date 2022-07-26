@@ -1,7 +1,6 @@
-# web-scraping-challenge
-Unit 12 Homework: Mission to Mars
+# Mission to Mars
 
-In this assignment, web scraping was performed in a jupyter notebook to compile various components to ultimately be incorporated into a web page. Splinter was used to navigate web pages and BeautifulSoup was used to find and parse out the necessary data. Pandas scraping was also utilized to scrape a table.
+In this repository, web scraping was performed in a jupyter notebook to compile various components to ultimately be incorporated into a web page. Splinter was used to navigate web pages and BeautifulSoup was used to find and parse out the necessary data. Pandas scraping was also utilized to scrape a table.
 
 After the data was scraped in a jupyter notebook, the notebook was then converted into a Python Script by using a function called 'scrape'. This function executes all scraping code from the jupyter notebook and returns it into one Python dictionary.
 
